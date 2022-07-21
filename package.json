@@ -1,11 +1,26 @@
 {
   "name": "@qbq.systems/yandex-ru-disk-api-js",
   "version": "22.7.21-14.57.29",
-  "description": "",
+  "description": "JS API client for yandex.ru disk endpoint",
+  "homepage": "https://github.com/qbq-systems/yandex-ru-disk-api-js",
+  "keywords": [
+    "api",
+    "yandex_disk",
+    "yandex_ru",
+    "sdk"
+  ],
   "main": "src/index.js",
+  "author": {
+    "name": "Vladimit Galunshchikov",
+    "url": "https://github.com/soyayaos"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qbq-systems/yandex-ru-disk-api-js"
+  },
+  "bugs": {
+    "url": "https://github.com/qbq-systems/yandex-ru-disk-api-js/issues"
+  },
   "scripts": {},
-  "private": true,
-  "keywords": [],
-  "author": "",
   "license": "MIT"
 }
