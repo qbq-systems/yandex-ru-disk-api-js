@@ -1,6 +1,6 @@
 {
   "name": "@qbq.systems/yandex-ru-disk-api",
-  "version": "22.7.21-14.57.29",
+  "version": "22.7.22-9.59.34",
   "description": "JS API client for yandex.ru disk endpoint",
   "homepage": "https://github.com/qbq-systems/yandex-ru-disk-api-js",
   "keywords": [
