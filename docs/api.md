@@ -24,7 +24,7 @@ API.v1.disk.get()
 
 ```
 API.v1.disk.operations.:operation_id.getByOperationId(
-    operation_id: StringType,
+    operation_id: StringType
 )
 ```   
 
@@ -50,13 +50,13 @@ API.v1.disk.operations.:operation_id.getByOperationId(
 
 ```
 API.v1.disk.public.resources.get(
-    public_key: StringType,
-    path: StringType,
-    sort: StringType,
-    limit: Int32Type,
-    preview_size: StringType,
-    preview_crop: BooleanType,
-    offset: Int32Type,
+    public_key: StringType
+    path: StringType = null,
+    sort: StringType = 'path',
+    limit: Int32Type = 20,
+    preview_size: StringType = null,
+    preview_crop: BooleanType = null,
+    offset: Int32Type = 0,
 )
 ```   
 
@@ -77,8 +77,8 @@ API.v1.disk.public.resources.get(
 
 ```
 API.v1.disk.public.resources.download.get(
-    public_key: StringType,
-    path: StringType,
+    public_key: StringType
+    path: StringType = null,
 )
 ```   
 
@@ -98,9 +98,9 @@ API.v1.disk.public.resources.download.get(
 
 ```
 API.v1.disk.public.resources.download.post(
-    public_key: StringType,
-    path: StringType,
-    name: StringType,
+    public_key: StringType = null,
+    path: StringType = null,
+    name: StringType = null,
 )
 ```   
 
@@ -122,9 +122,9 @@ API.v1.disk.public.resources.download.post(
 
 ```
 API.v1.disk.resources.delete(
-    path: StringType,
-    permanently: BooleanType,
-    fields: StringType,
+    path: StringType
+    permanently: BooleanType
+    fields: StringType = null,
 )
 ```   
 
@@ -148,13 +148,13 @@ API.v1.disk.resources.delete(
 
 ```
 API.v1.disk.resources.get(
-    path: StringType,
-    fields: StringType,
-    limit: Int32Type,
-    offset: Int32Type,
-    preview_crop: BooleanType,
-    preview_size: StringType,
-    sort: StringType,
+    path: StringType
+    fields: StringType = null,
+    limit: Int32Type = 20,
+    offset: Int32Type = 0,
+    preview_crop: BooleanType = null,
+    preview_size: StringType = null,
+    sort: StringType = 'path',
 )
 ```   
 
@@ -173,8 +173,8 @@ API.v1.disk.resources.get(
 
 ```
 API.v1.disk.resources.patch(
-    path: StringType,
-    fields: StringType,
+    path: StringType
+    fields: StringType = null,
 )
 ```   
 
@@ -193,8 +193,8 @@ API.v1.disk.resources.patch(
 
 ```
 API.v1.disk.resources.put(
-    path: StringType,
-    fields: StringType,
+    path: StringType
+    fields: StringType = null,
 )
 ```   
 
@@ -208,7 +208,7 @@ API.v1.disk.resources.put(
 
 <u>query</u>   
 
-* path {string} Путь к нужному ресурсу относительно корневого каталога Диска.   
+* from {string} Путь к нужному ресурсу относительно корневого каталога Диска.   
 * path {string} Путь к нужному ресурсу относительно корневого каталога Диска.   
 * overwrite {boolean}    
 * fields {string}    
@@ -217,10 +217,10 @@ API.v1.disk.resources.put(
 
 ```
 API.v1.disk.resources.copy.post(
-    path: StringType,
-    path: StringType,
-    overwrite: BooleanType,
-    fields: StringType,
+    from: StringType
+    path: StringType
+    overwrite: BooleanType = null,
+    fields: StringType = null,
 )
 ```   
 
@@ -241,8 +241,30 @@ API.v1.disk.resources.copy.post(
 
 ```
 API.v1.disk.resources.download.get(
-    path: StringType,
-    fields: StringType,
+    path: StringType
+    fields: StringType = null,
+)
+```   
+
+### POST
+
+Скачивание файла с Диска
+
+Чтобы получить URL для непосредственной загрузки файла, необходимо передать API путь на Диске, по которому загруженный файл должен быть доступен.
+
+<u>query</u>   
+
+* public_key {string}    
+* path {string} Путь к нужному ресурсу относительно корневого каталога Диска.   
+* name {string}    
+
+<u>api</u>   
+
+```
+API.v1.disk.resources.download.post(
+    public_key: StringType
+    path: StringType = null,
+    name: StringType = null,
 )
 ```   
 
@@ -267,12 +289,12 @@ API возвращает плоский список всех файлов на 
 
 ```
 API.v1.disk.resources.files.get(
-    limit: Int32Type,
-    media_type: StringType,
-    offset: Int32Type,
-    fields: StringType,
-    preview_size: StringType,
-    preview_crop: BooleanType,
+    limit: Int32Type = 20,
+    media_type: StringType = null,
+    offset: Int32Type = 0,
+    fields: StringType = null,
+    preview_size: StringType = null,
+    preview_crop: BooleanType = null,
 )
 ```   
 
@@ -296,11 +318,11 @@ API возвращает список последних файлов, загр�
 
 ```
 API.v1.disk.resources.last-uploaded.get(
-    limit: Int32Type,
-    media_type: StringType,
-    fields: StringType,
-    preview_size: StringType,
-    preview_crop: BooleanType,
+    limit: Int32Type = 20,
+    media_type: StringType = null,
+    fields: StringType = null,
+    preview_size: StringType = null,
+    preview_crop: BooleanType = null,
 )
 ```   
 
@@ -314,7 +336,7 @@ API.v1.disk.resources.last-uploaded.get(
 
 <u>query</u>   
 
-* path {string} Путь к нужному ресурсу относительно корневого каталога Диска.   
+* from {string} Путь к нужному ресурсу относительно корневого каталога Диска.   
 * path {string} Путь к нужному ресурсу относительно корневого каталога Диска.   
 * overwrite {boolean}    
 * fields {string}    
@@ -323,10 +345,10 @@ API.v1.disk.resources.last-uploaded.get(
 
 ```
 API.v1.disk.resources.move.post(
-    path: StringType,
-    path: StringType,
-    overwrite: BooleanType,
-    fields: StringType,
+    from: StringType
+    path: StringType
+    overwrite: BooleanType = null,
+    fields: StringType = null,
 )
 ```   
 
@@ -350,11 +372,11 @@ API возвращает список опубликованных ресурс�
 
 ```
 API.v1.disk.resources.public.get(
-    limit: Int32Type,
-    offset: Int32Type,
-    type: StringType,
-    fields: StringType,
-    preview_size: StringType,
+    type: StringType
+    limit: Int32Type = 20,
+    offset: Int32Type = 0,
+    fields: StringType = null,
+    preview_size: StringType = null,
 )
 ```   
 
@@ -374,7 +396,7 @@ API.v1.disk.resources.public.get(
 
 ```
 API.v1.disk.resources.publish.put(
-    path: StringType,
+    path: StringType
 )
 ```   
 
@@ -394,7 +416,7 @@ API.v1.disk.resources.publish.put(
 
 ```
 API.v1.disk.resources.unpublish.put(
-    path: StringType,
+    path: StringType = null,
 )
 ```   
 
@@ -416,9 +438,9 @@ API.v1.disk.resources.unpublish.put(
 
 ```
 API.v1.disk.resources.upload.get(
-    path: StringType,
-    overwrite: BooleanType,
-    fields: StringType,
+    path: StringType
+    overwrite: BooleanType = null,
+    fields: StringType = null,
 )
 ```   
 
@@ -439,10 +461,10 @@ API.v1.disk.resources.upload.get(
 
 ```
 API.v1.disk.resources.upload.post(
-    url: StringType,
-    path: StringType,
-    fields: StringType,
-    disable_redirects: BooleanType,
+    url: StringType
+    path: StringType
+    disable_redirects: BooleanType
+    fields: StringType = null,
 )
 ```   
 
@@ -462,7 +484,7 @@ API.v1.disk.resources.upload.post(
 
 ```
 API.v1.disk.trash.resources.delete(
-    path: StringType,
+    path: StringType = null,
 )
 ```   
 
@@ -480,8 +502,8 @@ API.v1.disk.trash.resources.delete(
 
 ```
 API.v1.disk.trash.resources.restore.put(
-    path: StringType,
-    name: StringType,
-    overwrite: BooleanType,
+    path: StringType
+    name: StringType = null,
+    overwrite: BooleanType = null,
 )
 ```   
